@@ -8,12 +8,25 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    @IBOutlet var colorizedView: UIView!
+    
+    @IBOutlet var valueRedSlider: UILabel!
+    @IBOutlet var valueGreenSlider: UILabel!
+    @IBOutlet var valueBlueSlider: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+       
     }
 
-
+    @IBAction func redSlider(_ sender: Any) {
+    }
+    
+    @IBAction func greenSlider(_ sender: Any) {
+    }
+    
+    @IBAction func blueSlider(_ sender: Any) {
+    }
+    
 }
 
