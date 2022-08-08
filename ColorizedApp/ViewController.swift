@@ -23,12 +23,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setupSliders()
-    }
-    
-    override func viewDidLayoutSubviews() {
         bottomSetting()
+        setupSliders()
+        setupLable()
     }
 
     @IBAction func changeOpacitySlider() {
@@ -57,39 +54,21 @@ class ViewController: UIViewController {
     }
     
     private func setupSliders() {
-        setupSluderOpacity()
-        setupSluderRed()
-        setupSliderGreen()
-        setupSliderBleu()
-    }
-    
-    private func setupSluderOpacity() {
-        opacitySlider.value = 0.5
-        opacitySlider.minimumValue = 0
-        opacitySlider.maximumValue = 1
+        setupSlider(redSlider, .red)
+        setupSlider(blueSlider, .blue)
+        setupSlider(greenSlider, .green)
         
+        setupValueLabel(valueRedSlider, redSlider)
+        setupValueLabel(valueBlueSlider, blueSlider)
+        setupValueLabel(valueGreenSlider, greenSlider)
     }
     
-    private func setupSluderRed() {
-        redSlider.value = 0.5
-        redSlider.minimumValue = 0
-        redSlider.maximumValue = 1
-        redSlider.minimumTrackTintColor = .red
-        valueRedSlider.text = String(redSlider.value)
+    private func setupSlider(_ slider: UISlider, _ color: UIColor) {
+        slider.minimumTrackTintColor = color
     }
-    private func setupSliderGreen() {
-        greenSlider.value = 0.5
-        greenSlider.minimumValue = 0
-        greenSlider.maximumValue = 1
-        greenSlider.minimumTrackTintColor = .green
-        valueGreenSlider.text = String(greenSlider.value)
-    }
-    private func setupSliderBleu() {
-        blueSlider.value = 0.5
-        blueSlider.minimumValue = 0
-        blueSlider.maximumValue = 1
-        blueSlider.minimumTrackTintColor = .blue
-        valueBlueSlider.text = String(blueSlider.value)
+    
+    private func setupValueLabel(_ label: UILabel, _ slider: UISlider) {
+        label.text = String(slider.value)
     }
     
     private func bottomSetting() {
